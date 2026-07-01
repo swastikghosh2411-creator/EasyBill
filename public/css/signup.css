@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-image: url("/assets/signup.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+h1, p{
+    text-align: center;
+}
+
+.head{
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    padding-top: 2rem;
+}
+
+#sig{
+    font-size: 1.5rem;
+    color: rgb(38, 5, 5);
+    margin: 1rem 0 2rem;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.mainbox{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 90%;
+    max-width: 500px;
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 2rem;
+    border-radius: 2rem;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    backdrop-filter: blur(8px);
+}
+
+.ip{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+label{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+input{
+    width: 100%;
+    border-radius: 0.5rem;
+    height: 2.5rem;
+    padding: 0 1rem;
+    border: 1px solid #ccc;
+}
+
+.name{
+    display: flex;
+    gap: 1rem;
+}
+
+button{
+    background-color: #007BFF;
+    border-radius: 2rem;
+    border: none;
+    color: white;
+    height: 2.8rem;
+    width: 10rem;
+    transition: 0.3s ease;
+    font-size: 1.1rem;
+    align-self: center;
+    cursor: pointer;
+}
+
+button:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.create{
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.create a{
+    text-decoration: none;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+
+    .head{
+        font-size: 1rem;
+    }
+
+    #sig{
+        font-size: 1.2rem;
+    }
+
+    .name{
+        flex-direction: column;
+    }
+
+    .mainbox{
+        padding: 1.5rem;
+    }
+}

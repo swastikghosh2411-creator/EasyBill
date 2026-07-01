@@ -1,0 +1,309 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: radial-gradient(circle at 20% 30%, #e9d5ff 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, #c7d2fe 0%, transparent 40%),
+                #f8fafc;
+    padding-top: 5rem;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+hr{
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+}
+
+/* NAVBAR */
+
+.Nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5rem;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    z-index: 1000;
+}
+
+.logo{
+    display: flex;
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.Nav a{
+    text-decoration: none;
+    color: black;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.Nav a:hover{
+    background-color: rgba(170, 52, 209, 0.905);
+    color: white;
+}
+
+.rightnav{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.signup-btn{
+    background: #007BFF;
+    color: white !important;
+    border-radius: 10px;
+}
+
+/* HERO SECTION */
+
+main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem 5%;
+    gap: 3rem;
+}
+
+.right{
+    max-width: 650px;
+}
+
+.right h1{
+    font-size: 4rem;
+    color: rgba(97, 4, 128, 0.905);
+    margin-bottom: 2rem;
+}
+
+.subtitle{
+    font-size: 1.3rem;
+    line-height: 1.6;
+}
+
+.left img{
+    width: 500px;
+}
+
+/* BUTTONS */
+
+.freetrial{
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.freetrial button{
+    padding: 14px 24px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s ease;
+}
+
+.freetrial button:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.freetrial button:first-child{
+    background: #007BFF;
+    color: white;
+}
+
+#login{
+    background: white;
+    color: rgba(97, 4, 128, 0.905);
+    border: 1px solid #007BFF;
+}
+
+/* FEATURES */
+
+#features h1{
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.featuresec{
+    padding: 4rem 2rem;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.card{
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    width: 300px;
+    min-height: 220px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.3s;
+    text-align: center;
+}
+
+.card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.15);
+}
+
+.card h3{
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.card p{
+    line-height: 1.6;
+}
+
+/* ABOUT */
+
+#aboutus{
+    padding: 4rem 10%;
+}
+
+.about{
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.about h1{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.about h2{
+    margin: 2rem 0 1rem;
+}
+
+.about p,
+.about li{
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.about ul{
+    margin-left: 2rem;
+}
+
+/* FOOTER */
+
+.footer{
+    background-color: rgba(97, 4, 128, 0.905);
+    color: white;
+    padding: 3rem 2rem;
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.footer h3{
+    color: rgb(34, 218, 209);
+    margin-bottom: 1rem;
+}
+
+/* TABLET */
+
+@media (max-width: 1024px){
+
+    main{
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .right h1{
+        font-size: 3rem;
+    }
+
+    .freetrial{
+        justify-content: center;
+    }
+
+    .left img{
+        width: 400px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 768px){
+
+    .Nav{
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .rightnav{
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    body{
+        padding-top: 8rem;
+    }
+
+    .right h1{
+        font-size: 2.2rem;
+    }
+
+    .subtitle{
+        font-size: 1rem;
+    }
+
+    .left img{
+        width: 300px;
+    }
+
+    .freetrial{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .freetrial button{
+        width: 220px;
+    }
+
+    .card{
+        width: 90%;
+    }
+
+    .about{
+        padding: 2rem;
+    }
+
+    .about p,
+    .about li{
+        font-size: 1rem;
+    }
+
+    .footer{
+        flex-direction: column;
+        text-align: center;
+    }
+}
