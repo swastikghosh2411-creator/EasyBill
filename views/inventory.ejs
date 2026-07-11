@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory – ACUBILL</title>
+    <link rel="stylesheet" href="/css/inventory.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">
+            <p style="color: black;">ACU</p><p style="color: navy;">BILL</p>
+        </div>
+        <a href="/dashboard" class="back">← Dashboard</a>
+    </div>
+
+    <div class="page">
+
+        <div class="top">
+            <div>
+                <h2>Inventory</h2>
+                <p>Manage your products and stock levels</p>
+            </div>
+            <a href="/inventory/new" class="addbtn">
+                <i class="fa-solid fa-plus"></i> Add Product
+            </a>
+        </div>
+
+        <% if(result.length === 0) { %>
+            <div class="empty">
+                <i class="fa-solid fa-box-open"></i>
+                <p>No products yet. Add your first product!</p>
+            </div>
+        <% } else { %>
+        
+<% let total = 0; %>
+<% for(let s of result) { %>
+    <% total += s.stock * s.price; %>
+<% } %>
+<p class="total">
+    Total Inventory Value: 
+    <span>₹<%= total.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2}) %></span>
+</p>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Stock</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let a of result) { %>
+                    <tr class="<%= a.stock <= 10 ? 'low-stock' : '' %>">
+                        <td><%= a.id %></td>
+                        <td><strong><%= a.name %></strong></td>
+                        <td><span class="badge"><%= a.category %></span></td>
+                        <td>
+                            <%= a.stock %>
+                            <% if(a.stock <= 10) { %>
+                                <span class="warn">Low</span>
+                            <% } %>
+                        </td>
+                        <td>₹<%= a.price %></td>
+                        <td class="actions">
+                            <a href="/inventory/edit/<%= a.id %>" class="edit-btn">
+                                <i class="fa-solid fa-pen"></i> Edit
+                            </a>
+                            <form action="/inventory/delete/<%= a.id %>?_method=DELETE" method="POST">
+                                <button type="submit" class="del-btn">
+                                    <i class="fa-solid fa-trash"></i> Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+
+        <% } %>
+
+    </div>
+
+</body>
+</html>

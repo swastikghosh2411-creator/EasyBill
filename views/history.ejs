@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing History – ACUBILL</title>
+    <link rel="stylesheet" href="/css/history.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="logo">
+            <p style="color: black;">ACU</p><p style="color: navy;">BILL</p>
+        </div>
+        <a href="/dashboard" class="back">← Dashboard</a>
+    </div>
+
+    <div class="history-wrap">
+
+        <div class="history-header">
+            <h2>Billing History</h2>
+            <p>All invoices generated so far</p>
+        </div>
+
+        <div class="history-table-wrap">
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Bill ID</th>
+                        <th>Phone No</th>
+                        <th>Subtotal</th>
+                        <th>GST</th>
+                        <th>Total</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(bills.length === 0) { %>
+                        <tr>
+                            <td colspan="6" class="empty-msg">No bills generated yet</td>
+                        </tr>
+                    <% } else { %>
+                        <% for(let bill of bills) { %>
+                            <tr>
+                                <td>#<%= bill.id %></td>
+                                <td><%= bill.phone_no %></td>
+                                <td>₹<%= bill.subtotal %></td>
+                                <td>₹<%= bill.gst %></td>
+                                <td class="bold">₹<%= bill.total %></td>
+                                <td>
+                                    <%= new Date(bill.created_at).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }) %>
+                                    <span class="time"><%= new Date(bill.created_at).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }) %></span>
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</body>
+</html>

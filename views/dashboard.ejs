@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard – ACUBILL</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="logo">
+            <p style="color: black;">ACU</p><p style="color: navy;">BILL</p>
+        </div>
+        <a href="/logout" class="logout">Logout</a>
+    </div>
+
+    <!-- WELCOME STRIP -->
+<div class="welcome">
+    <h2 id="greeting"></h2>
+    <p>Welcome back to your dashboard</p>
+</div>
+
+<script>
+    const hour = new Date().getHours();
+    let greeting;
+    let emoji;
+
+    if (hour < 12) {
+        greeting = "Good morning";
+        emoji = "☀️";
+    } else if (hour < 17) {
+        greeting = "Good afternoon";
+        emoji = "👋";
+    } else {
+        greeting = "Good evening";
+        emoji = "🌙";
+    }
+
+    const firstName = "<%= data.owner_name %>".split(" ")[0];
+    document.getElementById("greeting").innerText = `${greeting}, ${firstName} ${emoji}`;
+</script>
+
+    <!-- BIG BUSINESS CARD -->
+    <div class="business-card">
+        <span class="business-badge"><%= data.business_type %></span>
+        <h1 class="business-name"><%= data.business_name %></h1>
+        <% if (data.tagline) { %>
+            <p class="business-tagline">"<%= data.tagline %>"</p>
+        <% } %>
+        <div class="divider"></div>
+        <div class="business-info">
+            <div class="info-item">
+                <span class="info-icon">📍</span>
+                <span><%= data.city %>, <%= data.state %></span>
+            </div>
+            <div class="info-item">
+                <span class="info-icon">📞</span>
+                <span><%= data.phone %></span>
+            </div>
+            <div class="info-item">
+                <span class="info-icon">🧾</span>
+                <span><%= data.gstin && data.gstin !== 'na' && data.gstin !== 'NA' ? data.gstin : 'Not Registered' %></span>
+            </div>
+            <div class="info-item">
+                <span class="info-icon">📌</span>
+                <span><%= data.pincode %></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- FEATURES -->
+    <div class="features-heading">
+        <p>What would you like to do today?</p>
+    </div>
+
+    <div class="features">
+        <a href="/inventory" class="card">
+            <div class="icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+            <h3>Inventory</h3>
+            <p>Add and manage your products and stock levels</p>
+        </a>
+        <a href="/billing" class="card">
+            <div class="icon"><i class="fa-solid fa-file-invoice"></i></div>
+            <h3>Create Invoice</h3>
+            <p>Generate a new bill for your customer instantly</p>
+        </a>
+        <a href="/history" class="card">
+            <div class="icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+            <h3>History</h3>
+            <p>View all past transactions and bills</p>
+        </a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="foot">
+            <h3>ACUBILL</h3>
+            <p>Smart and simple billing software designed to help businesses manage inventory, customers, and invoices efficiently.</p>
+        </div>
+        <div class="foot">
+            <h3>Your Business</h3>
+            <p><%= data.business_name %></p>
+            <p><%= data.business_type %></p>
+            <p><%= data.city %>, <%= data.state %></p>
+        </div>
+        <div class="foot">
+            <h3>Contact Us</h3>
+            <p>Email: support@acubill.com</p>
+            <p>Phone: +91 7003552642</p>
+        </div>
+        <div class="foot copyright">
+            <p>© 2026 ACUBILL. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

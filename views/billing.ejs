@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing – ACUBILL</title>
+    <link rel="stylesheet" href="/css/billing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="logo">
+            <p style="color: black;">ACU</p><p style="color: navy;">BILL</p>
+        </div>
+        <a href="/dashboard" class="back">← Dashboard</a>
+    </div>
+
+    <div class="layout">
+
+        <!-- LEFT SIDE — PRODUCT LIST -->
+        <div class="left-side">
+
+            <div class="left-header">
+                <h2>Products</h2>
+                <p>Select products to add to invoice</p>
+            </div>
+
+            <div class="search-wrap">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search" id="searchBox" placeholder="Search by name or category...">
+            </div>
+
+            <div class="all-products" id="allProducts">
+                <% for(let product of result) { %>
+                    <div class="product-card" 
+                         data-name="<%= product.name.toLowerCase() %>" 
+                         data-category="<%= product.category.toLowerCase() %>">
+                        
+                        <div class="product-details">
+                            <h3><%= product.name %></h3>
+                            <span class="cat-badge"><%= product.category %></span>
+                            <div class="product-meta">
+                                <p>Stock: <strong><%= product.stock %></strong></p>
+                                <p>₹<strong><%= product.price %></strong> / unit</p>
+                            </div>
+                        </div>
+                         <div class="btn-group">
+                        <button class="add-btn" 
+                                onclick="addToCart('<%= product.id %>', '<%= product.name %>', <%= product.price %>, <%= product.stock %>)">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                       
+    <button class="remove-btn"
+            onclick="removeOneFromCart('<%= product.id %>')">
+        <i class="fa-solid fa-minus"></i>
+    </button>
+    </div>
+
+                    </div>
+                <% } %>
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE — INVOICE PREVIEW -->
+        <div class="right-side">
+
+            <!-- BUSINESS INFO -->
+            <div class="invoice-header">
+                <h2><%= business.business_name %></h2>
+                <p><%= business.address %>, <%= business.city %></p>
+                <p><%= business.state %> - <%= business.pincode %></p>
+                <p>📞 <%= business.phone %></p>
+                <% if(business.gstin && business.gstin !== 'na' && business.gstin !== 'NA') { %>
+                    <p>GSTIN: <%= business.gstin %></p>
+                <% } %>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- CUSTOMER INFO -->
+            <div class="customer-section">
+                <h4>Customer Details</h4>
+                <div class="customer-inputs">
+                    <input type="text" id="customerName" placeholder="Customer Name" required>
+                    <input type="tel" id="customerPhone" placeholder="Phone Number" required>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- CART TABLE -->
+            <div class="cart-section">
+                <h4>Items</h4>
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                            <th>Total</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items">
+                        <tr id="empty-cart-msg">
+                            <td colspan="5" class="empty-msg">No items added yet</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- TOTALS -->
+            <div class="totals">
+                <div class="total-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">₹0.00</span>
+                </div>
+                <div class="total-row">
+                    <span>GST (18%)</span>
+                    <span id="gst">₹0.00</span>
+                </div>
+                <div class="total-row grand">
+                    <span>Total</span>
+                    <span id="total">₹0.00</span>
+                </div>
+            </div>
+
+            <button class="generate-btn" onclick="generateBill()">
+                <i class="fa-solid fa-print"></i> Generate & Print
+            </button>
+
+        </div>
+
+    </div>
+
+    <script>
+        const products = <%- JSON.stringify(result) %>;
+        const business = <%- JSON.stringify(business) %>;
+    </script>
+    <script src="/script/billing.js"></script>
+
+</body>
+</html>

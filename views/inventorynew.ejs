@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product – ACUBILL</title>
+    <link rel="stylesheet" href="/css/inventorynew.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">
+            <p style="color: black;">ACU</p><p style="color: navy;">BILL</p>
+        </div>
+        <a href="/inventory" class="back">← Back to Inventory</a>
+    </div>
+
+    <div class="main">
+        <form class="mainbox" action="/inventory/new" method="post">
+            <h2>Add New Product</h2>
+            <p class="sub">Fill in the details of your product</p>
+
+            <div class="ip">
+                <label>Product Name</label>
+                <input type="text" placeholder="e.g. Chocolate Cake" name="name" required>
+            </div>
+
+            <select name="category" required>
+    <option value="">Select category</option>
+
+    <!-- Food & Beverages -->
+    <option value="Sweets">Sweets</option>
+    <option value="Bakery">Bakery</option>
+    <option value="Snacks">Snacks</option>
+    <option value="Beverages">Beverages</option>
+    <option value="Dairy">Dairy</option>
+    <option value="Fruits & Vegetables">Fruits & Vegetables</option>
+    <option value="Dry Fruits">Dry Fruits</option>
+    <option value="Spices & Masala">Spices & Masala</option>
+    <option value="Rice & Grains">Rice & Grains</option>
+    <option value="Pulses & Lentils">Pulses & Lentils</option>
+    <option value="Oil & Ghee">Oil & Ghee</option>
+    <option value="Frozen Food">Frozen Food</option>
+    <option value="Pickles & Sauces">Pickles & Sauces</option>
+    <option value="Tea & Coffee">Tea & Coffee</option>
+    <option value="Breakfast & Cereals">Breakfast & Cereals</option>
+    <option value="Noodles & Pasta">Noodles & Pasta</option>
+    <option value="Biscuits & Cookies">Biscuits & Cookies</option>
+    <option value="Chocolates & Candy">Chocolates & Candy</option>
+    <option value="Ice Cream">Ice Cream</option>
+    <option value="Fast Food">Fast Food</option>
+
+    <!-- Grocery & Household -->
+    <option value="Grocery">Grocery</option>
+    <option value="Cleaning Supplies">Cleaning Supplies</option>
+    <option value="Personal Care">Personal Care</option>
+    <option value="Baby Products">Baby Products</option>
+    <option value="Pooja & Religious">Pooja & Religious</option>
+    <option value="Paper & Packaging">Paper & Packaging</option>
+
+    <!-- General Retail -->
+    <option value="Stationery">Stationery</option>
+    <option value="Electronics">Electronics</option>
+    <option value="Clothing">Clothing</option>
+    <option value="Footwear">Footwear</option>
+    <option value="Toys & Games">Toys & Games</option>
+    <option value="Books">Books</option>
+    <option value="Medical & Pharmacy">Medical & Pharmacy</option>
+    <option value="Hardware & Tools">Hardware & Tools</option>
+    <option value="Sports & Fitness">Sports & Fitness</option>
+    <option value="Cosmetics & Beauty">Cosmetics & Beauty</option>
+    <option value="Jewellery & Accessories">Jewellery & Accessories</option>
+    <option value="Gifts & Decorations">Gifts & Decorations</option>
+
+    <option value="Other">Other</option>
+</select>
+
+            <div class="row">
+                <div class="ip">
+                    <label>Initial Stock</label>
+                    <input type="number" placeholder="e.g. 50" name="stock" required>
+                </div>
+                <div class="ip">
+                    <label>Price per unit (₹)</label>
+                    <input type="number" placeholder="e.g. 450" name="price" required>
+                </div>
+            </div>
+
+            <button type="submit">Add Product</button>
+        </form>
+    </div>
+
+</body>
+</html>

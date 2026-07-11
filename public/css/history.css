@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, #e8f4fd, #dbeeff, #c8e6ff);
+    min-height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2.5rem;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.back {
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.back:hover {
+    color: #0056b3;
+}
+
+.history-wrap {
+    max-width: 1100px;
+    margin: 1.5rem auto 3rem;
+    padding: 0 2rem;
+}
+
+.history-header {
+    margin-bottom: 1.2rem;
+}
+
+.history-header h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1a1a2e;
+}
+
+.history-header p {
+    font-size: 0.85rem;
+    color: #999;
+    margin-top: 0.2rem;
+}
+
+.history-table-wrap {
+    background: white;
+    border-radius: 1.2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    padding: 1.5rem;
+    overflow-x: auto;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.history-table thead th {
+    text-align: left;
+    color: #aaa;
+    font-weight: 600;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.history-table tbody tr {
+    border-bottom: 1px solid #f9f9f9;
+    transition: 0.15s ease;
+}
+
+.history-table tbody tr:hover {
+    background: #f7fbff;
+}
+
+.history-table tbody td {
+    padding: 0.8rem 0.4rem;
+    color: #333;
+    vertical-align: middle;
+}
+
+.history-table .bold {
+    font-weight: 700;
+    color: #1a1a2e;
+}
+
+.history-table .time {
+    display: block;
+    font-size: 0.75rem;
+    color: #aaa;
+}
+
+.empty-msg {
+    text-align: center;
+    color: #ccc;
+    padding: 2rem 0;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product – ACUBILL</title>
+    <link rel="stylesheet" href="/css/inventorynew.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">
+            <p style="color: black;">ACU</p><p style="color: navy;">BILL</p>
+        </div>
+        <a href="/inventory" class="back">← Back to Inventory</a>
+    </div>
+
+    <div class="main">
+        <form class="mainbox" method="post" action="/inventory/edit/<%= product.id %>?_method=PATCH">
+
+            <h2>Edit Product</h2>
+            <p class="sub">Update the details of your product</p>
+
+            <div class="ip">
+                <label>Product Name</label>
+                <input type="text" name="name" value="<%= product.name %>" required>
+            </div>
+
+            <div class="ip">
+                <label>Category</label>
+                <select name="category" required>
+                    <option value="">Select category</option>
+                    <option value="Sweets" <%= product.category === 'Sweets' ? 'selected' : '' %>>Sweets</option>
+                    <option value="Bakery" <%= product.category === 'Bakery' ? 'selected' : '' %>>Bakery</option>
+                    <option value="Snacks" <%= product.category === 'Snacks' ? 'selected' : '' %>>Snacks</option>
+                    <option value="Beverages" <%= product.category === 'Beverages' ? 'selected' : '' %>>Beverages</option>
+                    <option value="Dairy" <%= product.category === 'Dairy' ? 'selected' : '' %>>Dairy</option>
+                    <option value="Fruits & Vegetables" <%= product.category === 'Fruits & Vegetables' ? 'selected' : '' %>>Fruits & Vegetables</option>
+                    <option value="Dry Fruits" <%= product.category === 'Dry Fruits' ? 'selected' : '' %>>Dry Fruits</option>
+                    <option value="Spices & Masala" <%= product.category === 'Spices & Masala' ? 'selected' : '' %>>Spices & Masala</option>
+                    <option value="Rice & Grains" <%= product.category === 'Rice & Grains' ? 'selected' : '' %>>Rice & Grains</option>
+                    <option value="Pulses & Lentils" <%= product.category === 'Pulses & Lentils' ? 'selected' : '' %>>Pulses & Lentils</option>
+                    <option value="Oil & Ghee" <%= product.category === 'Oil & Ghee' ? 'selected' : '' %>>Oil & Ghee</option>
+                    <option value="Frozen Food" <%= product.category === 'Frozen Food' ? 'selected' : '' %>>Frozen Food</option>
+                    <option value="Pickles & Sauces" <%= product.category === 'Pickles & Sauces' ? 'selected' : '' %>>Pickles & Sauces</option>
+                    <option value="Tea & Coffee" <%= product.category === 'Tea & Coffee' ? 'selected' : '' %>>Tea & Coffee</option>
+                    <option value="Breakfast & Cereals" <%= product.category === 'Breakfast & Cereals' ? 'selected' : '' %>>Breakfast & Cereals</option>
+                    <option value="Noodles & Pasta" <%= product.category === 'Noodles & Pasta' ? 'selected' : '' %>>Noodles & Pasta</option>
+                    <option value="Biscuits & Cookies" <%= product.category === 'Biscuits & Cookies' ? 'selected' : '' %>>Biscuits & Cookies</option>
+                    <option value="Chocolates & Candy" <%= product.category === 'Chocolates & Candy' ? 'selected' : '' %>>Chocolates & Candy</option>
+                    <option value="Ice Cream" <%= product.category === 'Ice Cream' ? 'selected' : '' %>>Ice Cream</option>
+                    <option value="Fast Food" <%= product.category === 'Fast Food' ? 'selected' : '' %>>Fast Food</option>
+                    <option value="Grocery" <%= product.category === 'Grocery' ? 'selected' : '' %>>Grocery</option>
+                    <option value="Cleaning Supplies" <%= product.category === 'Cleaning Supplies' ? 'selected' : '' %>>Cleaning Supplies</option>
+                    <option value="Personal Care" <%= product.category === 'Personal Care' ? 'selected' : '' %>>Personal Care</option>
+                    <option value="Baby Products" <%= product.category === 'Baby Products' ? 'selected' : '' %>>Baby Products</option>
+                    <option value="Pooja & Religious" <%= product.category === 'Pooja & Religious' ? 'selected' : '' %>>Pooja & Religious</option>
+                    <option value="Paper & Packaging" <%= product.category === 'Paper & Packaging' ? 'selected' : '' %>>Paper & Packaging</option>
+                    <option value="Stationery" <%= product.category === 'Stationery' ? 'selected' : '' %>>Stationery</option>
+                    <option value="Electronics" <%= product.category === 'Electronics' ? 'selected' : '' %>>Electronics</option>
+                    <option value="Clothing" <%= product.category === 'Clothing' ? 'selected' : '' %>>Clothing</option>
+                    <option value="Footwear" <%= product.category === 'Footwear' ? 'selected' : '' %>>Footwear</option>
+                    <option value="Toys & Games" <%= product.category === 'Toys & Games' ? 'selected' : '' %>>Toys & Games</option>
+                    <option value="Books" <%= product.category === 'Books' ? 'selected' : '' %>>Books</option>
+                    <option value="Medical & Pharmacy" <%= product.category === 'Medical & Pharmacy' ? 'selected' : '' %>>Medical & Pharmacy</option>
+                    <option value="Hardware & Tools" <%= product.category === 'Hardware & Tools' ? 'selected' : '' %>>Hardware & Tools</option>
+                    <option value="Sports & Fitness" <%= product.category === 'Sports & Fitness' ? 'selected' : '' %>>Sports & Fitness</option>
+                    <option value="Cosmetics & Beauty" <%= product.category === 'Cosmetics & Beauty' ? 'selected' : '' %>>Cosmetics & Beauty</option>
+                    <option value="Jewellery & Accessories" <%= product.category === 'Jewellery & Accessories' ? 'selected' : '' %>>Jewellery & Accessories</option>
+                    <option value="Gifts & Decorations" <%= product.category === 'Gifts & Decorations' ? 'selected' : '' %>>Gifts & Decorations</option>
+                    <option value="Other" <%= product.category === 'Other' ? 'selected' : '' %>>Other</option>
+                </select>
+            </div>
+
+            <div class="row">
+                <div class="ip">
+                    <label>Stock Quantity</label>
+                    <input type="number" name="stock" value="<%= product.stock %>" required>
+                </div>
+                <div class="ip">
+                    <label>Price per unit (₹)</label>
+                    <input type="number" name="price" value="<%= product.price %>" required>
+                </div>
+            </div>
+
+            <button type="submit">Update Product</button>
+
+        </form>
+    </div>
+
+</body>
+</html>
